@@ -1,5 +1,5 @@
-import re
-from urllib.parse import ParseResultBytes
+import random
+
 
 
 class Game():
@@ -45,22 +45,27 @@ class Game():
     def player_1_turn(self):
         self.gesture_options()
         user_gesture_choice = int(input("Select your attack method!"))
+        return user_gesture_choice
 
     def player_2_turn(self):
-        pass
+        self.gesture_options()
+        user_gesture_choice = int(input("Select your attack method!"))
+        return user_gesture_choice
 
+    def computer_choice(self):
+        computer_turn = random.randint(0, 1, 2, 3, 4)
+        return computer_turn
+
+
+    
     def gesture_options(self):
-        print("Here are the attack options:")
+        print("Here are the attack options: ")
         print ("0 for Rock")
         print("1 for Paper")
         print("2 for Scissors")
         print("3 for Lizard")
         print("4 for Spock")
 
-        # attack_choices = ["rock", "paper", "sciccors", "lizard","spock"]
-        # for elem in attack_choices:
-        #     print(elem)
-        #     index += 1
 
     def display_winner(self):
         pass
