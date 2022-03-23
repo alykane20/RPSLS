@@ -33,21 +33,45 @@ class Game():
                 print("Please enter 1 or 2")
             elif user_input == 1:
                 print("Get ready to play the computer!")
+                return user_input
             else:
                 print("Get your opponent ready!")
-
                 return user_input
             
+    def random_turn_computer(self):
+        dice_roll = random.randint(1,2)
+        if dice_roll == 2:
+            print("Computer is going first!")
+            self.computer_choice()
+            
+        else:
+            print("Player 1, get ready to go first!")
+            self.player_one_turn()
+           
 
+    def random_turn_humans(self):
+        dice_roll = random.randint(1,2)
+    
+    
     def battle(self):
-        pass
+        game_mode_chosen = self.game_mode()
+        if game_mode_chosen == 1:
+            self.random_turn_computer()
+        else:
+            self.random_turn_humans()
 
-    def player_1_turn(self):
+        
+
+
+    def player_one_turn(self):
         self.gesture_options()
         user_gesture_choice = int(input("Select your attack method!"))
         return user_gesture_choice
 
-    def player_2_turn(self):
+
+
+
+    def player_two_turn(self):
         self.gesture_options()
         user_gesture_choice = int(input("Select your attack method!"))
         return user_gesture_choice
@@ -60,11 +84,13 @@ class Game():
     
     def gesture_options(self):
         print("Here are the attack options: ")
+        gesture_options_list = ["rock", "paper", "scissors", "lizard", "spock"]
         print ("0 for Rock")
         print("1 for Paper")
         print("2 for Scissors")
         print("3 for Lizard")
         print("4 for Spock")
+        return gesture_options_list
 
 
     def display_winner(self):
@@ -72,6 +98,6 @@ class Game():
 
 
 test = Game()
-print(test.gesture_options())
+print(test.battle())
 
 
