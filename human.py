@@ -1,9 +1,9 @@
 from player import Player
 
 class Human(Player):
-    def __init__(self):
-        self.name = "player 1"
-        super().__init__()
+    def __init__(self, name):
+        self.name = name
+        super().__init__(name)
 
     def player_one_turn(self):
         self.gesture_options()

@@ -5,10 +5,8 @@ from computer import Computer
 
 class Game():
     def __init__(self,):
-        self.human = Human()
-        self.computer = Computer()
-
-
+        self.human = Human("Bob")
+        self.computer = Computer("beep")
 
   
 
@@ -44,16 +42,22 @@ class Game():
                 print("Get your opponent ready!")
                 return user_input
 
-
-        
-
+    def computer_turn(self):
+        dice_roll = random.randint(1,2)
+        if dice_roll == 2:
+            print("Computer is going first") 
+            self.computer.computer_choice()
+        else:
+            print("Aly is going first")
+            self.human.player_one_turn()    
             
     def random_turn(self):
         dice_roll = random.randint(1,2)
         if dice_roll == 2:
-            print("Opponent is going first!") 
+            print("Mayra is going first") 
+            self.human.player_one_turn()
         else:
-            print("Player 1, get ready to go first!")
+            print("Aly is going first")
             self.human.player_one_turn()
            
 
@@ -64,11 +68,13 @@ class Game():
     
     def battle(self):
         game_mode_chosen = self.game_mode()
+        player_one = Human("Aly")
+        player_two = Human ("Mayra")
+        computer = Computer("beep")    
         if game_mode_chosen == 1:
-            self.random_turn()
+            return player_one, computer, self.computer_turn()
         else:
-            self.random_turn()
-
+            return player_one, player_two, self.random_turn()
         
 
 
