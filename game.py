@@ -1,3 +1,4 @@
+
 import random
 from human import Human
 from computer import Computer
@@ -5,11 +6,11 @@ from computer import Computer
 
 class Game():
     def __init__(self,):
-        self.human = Human("Bob")
-        self.computer = Computer("beep")
-
-  
-
+        self.player_one = Human()
+        self.player_two = None
+        
+        
+ 
     def run_game():
         pass
 
@@ -30,7 +31,6 @@ class Game():
     #1 or 2 players
     def game_mode(self):
         game_choices = [1,2]
-        
         while True:
             user_input = int(input("How many players? 1 or 2: "))
             if user_input not in game_choices:
@@ -42,20 +42,15 @@ class Game():
                 print("Get your opponent ready!")
                 return user_input
 
-    def computer_turn(self):
-        dice_roll = random.randint(1,2)
-        if dice_roll == 2:
-            print("Computer is going first") 
-            self.computer.computer_choice()
-        else:
-            print("Aly is going first")
-            self.human.player_one_turn()    
+
+    
             
     def random_turn(self):
+        chosen_player_two = self.second_player_choice()
         dice_roll = random.randint(1,2)
         if dice_roll == 2:
             print("Mayra is going first") 
-            self.human.player_one_turn()
+            self.player_two
         else:
             print("Aly is going first")
             self.human.player_one_turn()
@@ -66,16 +61,21 @@ class Game():
             pass
     
     
-    def battle(self):
+    def second_player_choice(self):
         game_mode_chosen = self.game_mode()
-        player_one = Human("Aly")
-        player_two = Human ("Mayra")
-        computer = Computer("beep")    
         if game_mode_chosen == 1:
-            return player_one, computer, self.computer_turn()
+            self.player_two = Computer("HELP")
+            return self.player_two
         else:
-            return player_one, player_two, self.random_turn()
+            self.player_two = Human("Sill need help")
+            return self.player_two
+
+    def first_player_turn(self):
         
+         
+            
+
+            
 
 
     # def player_one_turn(self):
@@ -114,5 +114,3 @@ class Game():
 
 test = Game()
 print(test.battle())
-
-
