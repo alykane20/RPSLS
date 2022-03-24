@@ -7,16 +7,21 @@ from computer import Computer
 class Game():
     def __init__(self,):
         self.player_one = Human("Player One")
-        self.player_two = None
+        self.player_two = Human("PLayer 2")
         
         
  
-    def run_game():
-        pass
+    def run_game(self):
+        self.display_welcome()
+        self.game_mode()
+        self.game_battle()
+        self.battle_result()
+    
 
      #include rules   
     def display_welcome(self):
         print("Welcome to Rock, Paper, Scissors, Lizard, Spock!")
+        print("First player to score 2 points wins!")
         print("""Rock crushes Scissors
                  Scissors cuts Paper
                  Paper covers Rock
@@ -55,30 +60,30 @@ class Game():
                 else:
                     print("player one point")
                     self.player_one.score += 1
-            elif self.player_on.gestures == "paper":
+            elif self.player_one.gestures == "paper":
                 if self.player_two.gestures == "scissors" or self.player_two.gestures == "lizard":
-                    print("player two win")
+                    print("player two point")
                     self.player_two.score += 1
                 else:
                     print("player one point")
                     self.player_one.score += 1
-            elif self.player_on.gestures == "scissors":
+            elif self.player_one.gestures == "scissors":
                 if self.player_two.gestures == "rock" or self.player_two.gestures == "spock":
-                    print("player two win")
+                    print("player two point")
                     self.player_two.score += 1
                 else:
                     print("player one point")
                     self.player_one.score += 1
-            elif self.player_on.gestures == "lizard":
+            elif self.player_one.gestures == "lizard":
                 if self.player_two.gestures == "scissors" or self.player_two.gestures == "rock":
-                    print("player two win")
+                    print("player two point")
                     self.player_two.score += 1
                 else:
                     print("player one point")
                     self.player_one.score += 1
-            elif self.player_on.gestures == "spock":
+            elif self.player_one.gestures == "spock":
                 if self.player_two.gestures == "lizard" or self.player_two.gestures == "paper":
-                    print("player two win")
+                    print("player two point")
                     self.player_two.score += 1
                 else:
                     print("player one point")
@@ -95,7 +100,7 @@ class Game():
             print("Player two won!")
     
     def second_player_choice(self):
-        game_mode_chosen = self.game_mode()
+       
         if game_mode_chosen == 1:
             self.player_two = Computer("HELP")
             return self.player_two
@@ -108,4 +113,4 @@ class Game():
 
 
 test = Game()
-test.game_battle()
+test.run_game()

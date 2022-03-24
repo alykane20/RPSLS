@@ -4,6 +4,7 @@ import random
 class Computer(Player):
     def __init__(self, name):
         self.name = name
+        self.score = 0
         super().__init__(name)
 
     def choose_gesture(self):
