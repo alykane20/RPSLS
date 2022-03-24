@@ -6,7 +6,7 @@ from computer import Computer
 
 class Game():
     def __init__(self,):
-        self.player_one = Human()
+        self.player_one = Human("Player One")
         self.player_two = None
         
         
@@ -42,6 +42,8 @@ class Game():
                 print("Get your opponent ready!")
                 return user_input
 
+    def game_battle(self):
+        pass
 
     
             
@@ -71,6 +73,15 @@ class Game():
             return self.player_two
 
     def first_player_turn(self):
+        result = self.human.player_turn
+        self.human.player_turn()
+        return result
+
+    def player_two_turn(self):
+        result_two = self.human.player_turn
+        self.human.player_turn()
+        return result_two
+
         
          
             
@@ -97,15 +108,15 @@ class Game():
 
 
     
-    def gesture_options(self):
-        print("Here are the attack options: ")
-        gesture_options_list = ["rock", "paper", "scissors", "lizard", "spock"]
-        print ("0 for Rock")
-        print("1 for Paper")
-        print("2 for Scissors")
-        print("3 for Lizard")
-        print("4 for Spock")
-        return gesture_options_list
+    # def gesture_options(self):
+    #     print("Here are the attack options: ")
+    #     gesture_options_list = ["rock", "paper", "scissors", "lizard", "spock"]
+    #     print ("0 for Rock")
+    #     print("1 for Paper")
+    #     print("2 for Scissors")
+    #     print("3 for Lizard")
+    #     print("4 for Spock")
+    #     return gesture_options_list
 
 
     def display_winner(self):
@@ -113,4 +124,4 @@ class Game():
 
 
 test = Game()
-print(test.battle())
+print(test.player_one.player_turn())
