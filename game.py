@@ -43,25 +43,56 @@ class Game():
                 return user_input
 
     def game_battle(self):
-        pass
+        while self.player_one.score <2 and self.player_two.score <2:
+            self.player_one.choose_gesture()
+            self.player_two.choose_gesture()
+            if self.player_one.gestures == self.player_two.gestures:
+                print("You picked the same thing! Try again!")
+            elif self.player_one.gestures == "rock":
+                if self.player_two.gestures == "paper" or self.player_two.gestures == "spock":
+                    print("player two wins this round!")
+                    self.player_two.score += 1
+                else:
+                    print("player one point")
+                    self.player_one.score += 1
+            elif self.player_on.gestures == "paper":
+                if self.player_two.gestures == "scissors" or self.player_two.gestures == "lizard":
+                    print("player two win")
+                    self.player_two.score += 1
+                else:
+                    print("player one point")
+                    self.player_one.score += 1
+            elif self.player_on.gestures == "scissors":
+                if self.player_two.gestures == "rock" or self.player_two.gestures == "spock":
+                    print("player two win")
+                    self.player_two.score += 1
+                else:
+                    print("player one point")
+                    self.player_one.score += 1
+            elif self.player_on.gestures == "lizard":
+                if self.player_two.gestures == "scissors" or self.player_two.gestures == "rock":
+                    print("player two win")
+                    self.player_two.score += 1
+                else:
+                    print("player one point")
+                    self.player_one.score += 1
+            elif self.player_on.gestures == "spock":
+                if self.player_two.gestures == "lizard" or self.player_two.gestures == "paper":
+                    print("player two win")
+                    self.player_two.score += 1
+                else:
+                    print("player one point")
+                    self.player_one.score += 1
+        self.battle_result
 
-    
-            
-    def random_turn(self):
-        chosen_player_two = self.second_player_choice()
-        dice_roll = random.randint(1,2)
-        if dice_roll == 2:
-            print("Mayra is going first") 
-            self.player_two
-        else:
-            print("Aly is going first")
-            self.human.player_one_turn()
-           
-
+         
+          
            
     def battle_result(self):
-            pass
-    
+        if self.player_one.score == 2:
+            print("Player one won!")
+        else:
+            print("Player two won!")
     
     def second_player_choice(self):
         game_mode_chosen = self.game_mode()
@@ -71,57 +102,10 @@ class Game():
         else:
             self.player_two = Human("Sill need help")
             return self.player_two
-
-    def first_player_turn(self):
-        result = self.human.player_turn
-        self.human.player_turn()
-        return result
-
-    def player_two_turn(self):
-        result_two = self.human.player_turn
-        self.human.player_turn()
-        return result_two
-
-        
+ 
          
-            
-
-            
-
-
-    # def player_one_turn(self):
-    #     self.gesture_options()
-    #     user_gesture_choice = int(input("Select your attack method!"))
-    #     return user_gesture_choice
-
-
-
-
-    # def player_two_turn(self):
-    #     self.gesture_options()
-    #     user_gesture_choice = int(input("Select your attack method!"))
-    #     return user_gesture_choice
-
-    # def computer_choice(self):
-    #     computer_turn = random.randint(0, 1, 2, 3, 4)
-    #     return computer_turn
-
-
     
-    # def gesture_options(self):
-    #     print("Here are the attack options: ")
-    #     gesture_options_list = ["rock", "paper", "scissors", "lizard", "spock"]
-    #     print ("0 for Rock")
-    #     print("1 for Paper")
-    #     print("2 for Scissors")
-    #     print("3 for Lizard")
-    #     print("4 for Spock")
-    #     return gesture_options_list
-
-
-    def display_winner(self):
-        pass
 
 
 test = Game()
-print(test.player_one.player_turn())
+test.game_battle()

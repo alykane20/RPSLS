@@ -5,8 +5,8 @@ class Human(Player):
         self.name = name
         super().__init__(name)
 
-    def player_turn(self):
+    def choose_gesture(self):
         self.gesture_options()
         user_gesture_choice = int(input("Select your attack method!"))
-        return user_gesture_choice
+        self.gestures = self.gesture_options_list[user_gesture_choice]
 
