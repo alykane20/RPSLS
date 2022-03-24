@@ -1,10 +1,16 @@
 import random
-
+from human import Human
+from computer import Computer
 
 
 class Game():
-    def __init__(self):
-        pass
+    def __init__(self,):
+        self.human = Human()
+        self.computer = Computer()
+
+
+
+  
 
     def run_game():
         pass
@@ -37,57 +43,51 @@ class Game():
             else:
                 print("Get your opponent ready!")
                 return user_input
-            
-    def random_turn_computer(self):
-        dice_roll = random.randint(1,2)
-        if dice_roll == 2:
-            print("Computer is going first!")
-            self.computer_choice()
-            
-        else:
-            print("Player 1, get ready to go first!")
-            self.player_one_turn()
-           
 
-    def random_turn_humans(self):
-        dice_roll = random.randint(1,2)
-        if dice_roll == 2:
-            print("Player 1, get ready to go first!")
-            self.player_one_turn()
+
         
+
+            
+    def random_turn(self):
+        dice_roll = random.randint(1,2)
+        if dice_roll == 2:
+            print("Opponent is going first!") 
         else:
-            print("Player 2, get ready to go first!")
-            self.player_two_turn()
+            print("Player 1, get ready to go first!")
+            self.human.player_one_turn()
            
 
+           
+    def battle_result(self):
+            pass
     
     
     def battle(self):
         game_mode_chosen = self.game_mode()
         if game_mode_chosen == 1:
-            self.random_turn_computer()
+            self.random_turn()
         else:
-            self.random_turn_humans()
+            self.random_turn()
 
         
 
 
-    def player_one_turn(self):
-        self.gesture_options()
-        user_gesture_choice = int(input("Select your attack method!"))
-        return user_gesture_choice
+    # def player_one_turn(self):
+    #     self.gesture_options()
+    #     user_gesture_choice = int(input("Select your attack method!"))
+    #     return user_gesture_choice
 
 
 
 
-    def player_two_turn(self):
-        self.gesture_options()
-        user_gesture_choice = int(input("Select your attack method!"))
-        return user_gesture_choice
+    # def player_two_turn(self):
+    #     self.gesture_options()
+    #     user_gesture_choice = int(input("Select your attack method!"))
+    #     return user_gesture_choice
 
-    def computer_choice(self):
-        computer_turn = random.randint(0, 1, 2, 3, 4)
-        return computer_turn
+    # def computer_choice(self):
+    #     computer_turn = random.randint(0, 1, 2, 3, 4)
+    #     return computer_turn
 
 
     
