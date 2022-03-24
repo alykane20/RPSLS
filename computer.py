@@ -8,7 +8,6 @@ class Computer(Player):
         super().__init__(name)
 
     def choose_gesture(self):
-        computer_turn = random.randint(0, 1, 2, 3, 4)
+        computer_turn = random.randint(0, 4)
         print(f"Computer picked {computer_turn}")
         self.gestures= self.gesture_options_list[computer_turn]
-    

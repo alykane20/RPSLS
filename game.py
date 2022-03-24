@@ -7,7 +7,7 @@ from computer import Computer
 class Game():
     def __init__(self,):
         self.player_one = Human("Player One")
-        self.player_two = Human("Player Two")
+        self.player_two = None
         
         
  
@@ -47,6 +47,8 @@ class Game():
                 return
             else:
                 print("Get your opponent ready!")
+                self.player_two = Human("Player Two")
+                return
                 
 
     def game_battle(self):
