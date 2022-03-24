@@ -51,6 +51,15 @@ class Game():
 
     def random_turn_humans(self):
         dice_roll = random.randint(1,2)
+        if dice_roll == 2:
+            print("Player 1, get ready to go first!")
+            self.player_one_turn()
+        
+        else:
+            print("Player 2, get ready to go first!")
+            self.player_two_turn()
+           
+
     
     
     def battle(self):
