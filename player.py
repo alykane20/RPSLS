@@ -16,13 +16,3 @@ class Player():
         
 
 
-
-    # def keep_score(self, user_score, opponent_score):
-    #     user_score = 0
-    #     opponent_score = 0
-    #     i = 1
-    #     total_game_count = 5
-        
-    #     while i <= total_game_count:
-    #         i += 1
-    #         return i

@@ -7,7 +7,7 @@ from computer import Computer
 class Game():
     def __init__(self,):
         self.player_one = Human("Player One")
-        self.player_two = Human("PLayer 2")
+        self.player_two = Human("Player Two")
         
         
  
@@ -36,16 +36,18 @@ class Game():
     #1 or 2 players
     def game_mode(self):
         game_choices = [1,2]
+    
         while True:
             user_input = int(input("How many players? 1 or 2: "))
             if user_input not in game_choices:
                 print("Please enter 1 or 2")
             elif user_input == 1:
                 print("Get ready to play the computer!")
-                return user_input
+                self.player_two = Computer("Player Two")
+                return
             else:
                 print("Get your opponent ready!")
-                return user_input
+                
 
     def game_battle(self):
         while self.player_one.score <2 and self.player_two.score <2:
@@ -99,15 +101,7 @@ class Game():
         else:
             print("Player two won!")
     
-    def second_player_choice(self):
-       
-        if game_mode_chosen == 1:
-            self.player_two = Computer("HELP")
-            return self.player_two
-        else:
-            self.player_two = Human("Sill need help")
-            return self.player_two
- 
+    
          
     
 
