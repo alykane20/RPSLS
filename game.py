@@ -108,5 +108,4 @@ class Game():
     
 
 
-test = Game()
-test.run_game()
+
